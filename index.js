@@ -95,3 +95,10 @@ function genReadMe(data) {
     
     - Email: ${data.email}`;
 }
+
+inquirer.prompt(questions).then((data) => {
+  const readmeData = genReadMe(data);
+  fs.writeFileSync("README.md", readmeData, (err) => {
+    if (err) console.error(err);
+  });
+});
