@@ -1,7 +1,7 @@
-# Test Title
+# README.md File Generator
     
 ## Description
-    a description
+Use this project to quickly create a professional README.md file by answering a few questions.
     
 ## Table of Contents
 - [Installation](#installation)
@@ -13,24 +13,23 @@
 - [Contact](#contact)
     
 ## Installation
-    install
+Install it!
     
 ## Usage
-    usage
+Use it as you wish.
     
 ## License
-    license
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   
     
 ## Contributing
-    contributors
+Contributors that contributed.
     
 ## Tests
-    testing 123
+Test often!
     
 ## Questions
-    no questions please
+No questions, please.
     
 ## Contact
-    - GitHub: [username01]
-    
-    - Email: email@aol.com
+- GitHub: [username01]
+- Email: email@aol.com

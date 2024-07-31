@@ -1,6 +1,8 @@
 import fs from "fs";
 import inquirer from "inquirer";
 
+const licenses = ["MIT", "Apache", "GPL", "BSD"];
+
 const questions = [
   {
     name: "title",
@@ -23,8 +25,10 @@ const questions = [
   },
 
   {
+    type: "checkbox",
     name: "license",
-    message: "Please provide license information for your project.",
+    message: "Please choose the license for your project.",
+    choices: licenses,
   },
 
   {
@@ -53,11 +57,29 @@ const questions = [
   },
 ];
 
+function generateBadgeMarkdown(license) {
+  const licenseBadges = {
+    MIT: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+    GPLv3:
+      "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+    "Apache 2.0":
+      "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+    "BSD 3-Clause":
+      "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
+    Unlicense:
+      "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+  };
+
+  return licenseBadges[license];
+}
+
+const badgeMarkdowns = licenses.map(generateBadgeMarkdown).join(" ");
+
 function genReadMe(data) {
   return `# ${data.title}
     
 ## Description
-    ${data.description}
+${data.description}
     
 ## Table of Contents
 - [Installation](#installation)
@@ -69,27 +91,26 @@ function genReadMe(data) {
 - [Contact](#contact)
     
 ## Installation
-    ${data.installation}
+${data.installation}
     
 ## Usage
-    ${data.usage}
+${data.usage}
     
 ## License
-    ${data.license}
+${badgeMarkdowns}
     
 ## Contributing
-    ${data.contributing}
+${data.contributing}
     
 ## Tests
-    ${data.tests}
+${data.tests}
     
 ## Questions
-    ${data.questions}
+${data.questions}
     
 ## Contact
-    - GitHub: [${data.username}]
-    
-    - Email: ${data.email}`;
+- GitHub: [${data.username}]
+- Email: ${data.email}`;
 }
 
 inquirer.prompt(questions).then((data) => {
