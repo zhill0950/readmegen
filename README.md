@@ -1,7 +1,9 @@
-# README.md File Generator
+# Project Title Here
+
+  [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
     
 ## Description
-Use this project to quickly create a professional README.md file by answering a few questions.
+Descriptive descriptions
     
 ## Table of Contents
 - [Installation](#installation)
@@ -13,23 +15,21 @@ Use this project to quickly create a professional README.md file by answering a 
 - [Contact](#contact)
     
 ## Installation
-Install it!
+Install this thing
     
 ## Usage
-Use it as you wish.
+Usage
     
 ## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   
+This application is covered under the following licenses: [BSD]
     
 ## Contributing
-Contributors that contributed.
+Contribute
     
 ## Tests
-Test often!
+Testing 123
     
 ## Questions
-No questions, please.
-    
-## Contact
-- GitHub: [username01]
-- Email: email@aol.com
+Github: [ [zhill0950](http://github.com/zhill0950) ]
+
+For any further questions, please reach out to me at zhill0950@gmail.com.

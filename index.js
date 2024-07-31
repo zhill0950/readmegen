@@ -1,7 +1,7 @@
 import fs from "fs";
 import inquirer from "inquirer";
 
-const licenses = ["MIT", "Apache", "GPL", "BSD"];
+const licenses = ["MIT", "GPL", "Apache", "BSD", "Unlicense"];
 
 const questions = [
   {
@@ -42,11 +42,6 @@ const questions = [
   },
 
   {
-    name: "questions",
-    message: "Please provide question information for your project.",
-  },
-
-  {
     name: "username",
     message: "What is your GitHub username?",
   },
@@ -57,26 +52,26 @@ const questions = [
   },
 ];
 
-function generateBadgeMarkdown(license) {
+function generateBadgeMarkdown(selectedLicenses) {
   const licenseBadges = {
     MIT: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
-    GPLv3:
-      "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
-    "Apache 2.0":
+    GPL: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+    Apache:
       "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
-    "BSD 3-Clause":
-      "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
+    BSD: "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
     Unlicense:
       "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
   };
 
-  return licenseBadges[license];
+  return selectedLicenses.map((license) => licenseBadges[license]).join(" ");
 }
 
-const badgeMarkdowns = licenses.map(generateBadgeMarkdown).join(" ");
-
 function genReadMe(data) {
+  const badgeMarkdowns = generateBadgeMarkdown(data.license);
+
   return `# ${data.title}
+
+  ${badgeMarkdowns}
     
 ## Description
 ${data.description}
@@ -97,7 +92,9 @@ ${data.installation}
 ${data.usage}
     
 ## License
-${badgeMarkdowns}
+This application is covered under the following licenses: [${data.license.join(
+    ", "
+  )}]
     
 ## Contributing
 ${data.contributing}
@@ -106,11 +103,9 @@ ${data.contributing}
 ${data.tests}
     
 ## Questions
-${data.questions}
-    
-## Contact
-- GitHub: [${data.username}]
-- Email: ${data.email}`;
+Github: [ [${data.username}](http://github.com/${data.username}) ]
+
+For any further questions, please reach out to me at ${data.email}.`;
 }
 
 inquirer.prompt(questions).then((data) => {
