@@ -56,41 +56,37 @@ const questions = [
 function genReadMe(data) {
   return `# ${data.title}
     
-    ## Description
+## Description
     ${data.description}
     
-    ## Table of Contents
-    - [Installation](#installation)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [Contact](#contact)
     
-    - [Usage](#usage)
-    
-    - [License](#license)
-    
-    - [Contributing](#contributing)
-    
-    - [Tests](#tests)
-    
-    - [Questions](#questions)
-    
-    ## Installation
+## Installation
     ${data.installation}
     
-    ## Usage
+## Usage
     ${data.usage}
     
-    ## License
+## License
     ${data.license}
     
-    ## Contributing
+## Contributing
     ${data.contributing}
     
-    ## Tests
+## Tests
     ${data.tests}
     
-    ## Questions
+## Questions
     ${data.questions}
     
-    ## Contact
+## Contact
     - GitHub: [${data.username}]
     
     - Email: ${data.email}`;
