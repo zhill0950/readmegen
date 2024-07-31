@@ -83,7 +83,6 @@ ${data.description}
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
-- [Contact](#contact)
     
 ## Installation
 ${data.installation}
